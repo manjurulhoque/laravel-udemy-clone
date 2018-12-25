@@ -56,22 +56,22 @@
                                     <div class="course-box-2">
                                         <div class="course-image">
                                             <a href="{{ route('course_detail', $course) }}">
-                                                <img src="" alt="" class="img-fluid">
+                                                <img src="{{ asset('images/learning.jpg') }}" alt="" class="img-fluid">
                                             </a>
                                         </div>
                                         <div class="course-details">
                                             <a href="{{ route('course_detail', $course) }}" class="course-title">{{ $course->title }}</a>
-                                            <a href="" class="course-instructor">
-                                                <span class="instructor-name">first_name last_name</span>
-                                                -
-                                            </a>
+                                            {{--<a href="" class="course-instructor">--}}
+                                                {{--<span class="instructor-name">first_name last_name</span>--}}
+                                                {{-----}}
+                                            {{--</a>--}}
                                             <div class="course-subtitle">
                                                 {{ $course->short_description }}
                                             </div>
                                             <div class="course-meta">
                                                 <span class="">
                                                     <i class="fas fa-play-circle"></i>
-                                                    10 Lessons
+                                                    {{ $course->lessons->count() }} Lessons
                                                 </span>
                                                 <span class="">
                                                     <i class="far fa-clock"></i>
@@ -84,8 +84,8 @@
                                         </div>
                                         <div class="course-price-rating">
                                             <div class="course-price">
-                                                <span class="current-price">$200</span>
-                                                <span class="original-price">$300</span>
+                                                <span class="current-price">${{ $course->price }}</span>
+                                                {{--<span class="original-price">$300</span>--}}
                                             </div>
                                             <div class="rating">
                                                 <i class="fas fa-star filled"></i>
@@ -95,7 +95,7 @@
                                                 <span class="d-inline-block average-rating">5</span>
                                             </div>
                                             <div class="rating-number">
-                                                12 Ratings
+                                                {{ $course->reviews->count() }} Ratings
                                             </div>
                                         </div>
                                     </div>
